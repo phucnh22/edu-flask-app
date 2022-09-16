@@ -1,11 +1,17 @@
 import os
 import psycopg2
 
+
+db_host = os.environ['DB_HOST']
+db_name = os.environ['DB_NAME']
+db_username = os.environ['DB_USERNAME']
+db_password = os.environ['DB_PASSWORD']
+
 connection = psycopg2.connect(
-        host=os.environ['DB_HOST'],
-        database=os.environ['DB_NAME'],
-        user=os.environ['DB_USERNAME'],
-        password=os.environ['DB_PASSWORD']
+        host=db_host,
+        database=db_name,
+        user=db_username,
+        password=db_password,
         port=5432)
 
 # Open a cursor to perform database operations

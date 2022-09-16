@@ -4,12 +4,17 @@ from flask import Flask, render_template,  request, url_for, redirect
 
 app = Flask(__name__)
 
+db_host = os.environ['database_host']
+db_name = os.environ['database_name']
+db_username = os.environ['database_user']
+db_password = os.environ['database_password']
+
 def get_db_connection():
     connection = psycopg2.connect(
-            host=os.environ['DB_HOST'],
-            database=os.environ['DB_NAME'],
-            user=os.environ['DB_USERNAME'],
-            password=os.environ['DB_PASSWORD']
+            host=db_host,
+            database=db_name,
+            user=db_username,
+            password=db_password,
             port=5432)
     return connection
 
@@ -46,3 +51,6 @@ def create():
         return redirect(url_for('index'))
 
     return render_template('create.html')
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
