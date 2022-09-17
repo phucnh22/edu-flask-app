@@ -2,10 +2,10 @@ import os
 import psycopg2
 
 
-db_host = os.environ['DB_HOST']
-db_name = os.environ['DB_NAME']
-db_username = os.environ['DB_USERNAME']
-db_password = os.environ['DB_PASSWORD']
+db_host = os.environ.get('database_host')
+db_name =  os.environ.get('database_name')
+db_username =  os.environ.get('database_user')
+db_password =  os.environ.get('database_password')
 
 connection = psycopg2.connect(
         host=db_host,

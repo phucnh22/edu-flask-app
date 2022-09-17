@@ -4,10 +4,10 @@ from flask import Flask, render_template,  request, url_for, redirect
 
 app = Flask(__name__)
 
-db_host = os.environ['database_host']
-db_name = os.environ['database_name']
-db_username = os.environ['database_user']
-db_password = os.environ['database_password']
+db_host = os.environ.get('database_host')
+db_name =  os.environ.get('database_name')
+db_username =  os.environ.get('database_user')
+db_password =  os.environ.get('database_password')
 
 def get_db_connection():
     connection = psycopg2.connect(
